@@ -1,0 +1,30 @@
+<!-- contenedor-component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contenedor Component</title>
+  <style>
+    :host {
+      display: block;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 20px;
+    }
+
+    h2 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2><slot name="encabezado">Encabezado Predeterminado</slot></h2>
+  </div>
+  
+  <div id="content">
+    <slot name="cuerpo">Cuerpo Predeterminado</slot>
+  </div>
+</body>
+</html>

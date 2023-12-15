@@ -1,0 +1,40 @@
+<!-- emisor-component.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emisor Component</title>
+  <style>
+    :host {
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <button id="emitButton">Enviar Mensaje</button>
+  <script>
+    class EmisorComponent extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
+          <button id="emitButton">Enviar Mensaje</button>
+        `;
+
+        this.shadowRoot.getElementById('emitButton').addEventListener('click', () => {
+          const mensaje = '¡Hola desde emisor-component!';
+          document.dispatchEvent(new CustomEvent('mensajeEnviado', { detail: mensaje }));
+        });
+      }
+    }
+
+    customElements.define('emisor-component', EmisorComponent);
+  </script>
+</body>
+</html>
+
+
+
+
